@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gudavalli Pools – Construction & Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0a1628;
+      --deep-blue: #103a5e;
+      --pool-blue: #1a6fa8;
+      --sky: #3ab4f2;
+      --gold: #c9a84c;
+      --gold-light: #e8c96e;
+      --white: #ffffff;
+      --off-white: #f5f7fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #4a5568;
+      --text-light: #718096;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px; text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--pool-blue), var(--sky));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .nav-logo-text span { color: var(--gold); display: block; font-size: 0.7rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy) !important;
+      padding: 9px 22px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      letter-spacing: 1px;
+    }
+    .nav-cta:hover { opacity: 0.9; color: var(--navy) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #1a6fa8 0, #0a1628 45%, #06101f 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 110px 5% 80px;
+      overflow: hidden;
+    }
+
+    .hero-waves {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 220px; overflow: hidden;
+    }
+    .hero-waves svg { width: 100%; height: 100%; }
+
+    /* Pool tile grid pattern */
+    .hero-pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.5) 39px, rgba(255,255,255,0.5) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.5) 39px, rgba(255,255,255,0.5) 40px);
+    }
+
+    /* Glowing pool circle */
+    .hero-glow {
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(58,180,242,0.35) 0%, rgba(26,111,168,0.2) 40%, transparent 70%);
+      border: 1px solid rgba(58,180,242,0.2);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    .hero-glow::before {
+      content: '';
+      position: absolute; inset: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.3);
+      animation: pulse 4s ease-in-out infinite 1s;
+    }
+    .hero-glow::after {
+      content: '🏊';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-size: 120px; opacity: 0.18;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateY(-50%) scale(1); opacity: 1; }
+      50% { transform: translateY(-50%) scale(1.03); opacity: 0.85; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.5);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 4.6vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+      animation: fadeUp 0.6s ease 0.15s both;
+    }
+    .hero h1 span {
+      color: var(--sky);
+      display: inline;
+      white-space: nowrap;
+    }
+
+    .hero p {
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 540px;
+      font-weight: 300;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .hero-buttons {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.45s both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      padding: 15px 36px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.5); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 15px 36px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-2px); }
+
+    .hero-stats {
+      margin-top: 40px;
+      display: flex;
+      gap: 32px;
+      z-index: 2;
+      animation: fadeUp 0.6s ease 0.6s both;
+      flex-wrap: wrap;
+    }
+    .stat {
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--white);
+    }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 2px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--pool-blue);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-title span { color: var(--pool-blue); }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 550px;
+      line-height: 1.75;
+    }
+    .divider {
+      width: 56px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 20px 0 40px;
+    }
+
+    /* ─── SERVICES ─── */
+    .services { background: var(--off-white); }
+    .services-header { text-align: center; margin-bottom: 56px; }
+    .services-header .section-sub { margin: 0 auto; }
+    .services-header .divider { margin: 20px auto 0; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(10,22,40,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 3px solid transparent;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(10,22,40,0.13);
+      border-top-color: var(--gold);
+    }
+    .service-icon-wrap {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px;
+      position: relative; overflow: hidden;
+    }
+    .service-card:nth-child(1) .service-icon-wrap { background: linear-gradient(135deg, #0a2744, #1a6fa8); }
+    .service-card:nth-child(2) .service-icon-wrap { background: linear-gradient(135deg, #0a3d2e, #1a8a6a); }
+    .service-card:nth-child(3) .service-icon-wrap { background: linear-gradient(135deg, #2d1a0a, #a86a1a); }
+    .service-card:nth-child(4) .service-icon-wrap { background: linear-gradient(135deg, #1a0a2d, #6a1aa8); }
+
+    .service-body { padding: 28px; }
+    .service-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .service-body p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+    .service-link {
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--pool-blue); text-decoration: none;
+    }
+    .service-link:hover { color: var(--gold); }
+
+    /* ─── WHY US ─── */
+    .why-us {
+      background: var(--navy);
+      position: relative; overflow: hidden;
+    }
+    .why-pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 0, transparent 50%);
+      background-size: 20px 20px;
+    }
+    .why-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .why-left .section-title { color: var(--white); }
+    .why-left .section-sub { color: rgba(255,255,255,0.65); }
+    .why-list { list-style: none; margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+    .why-item {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .why-check {
+      width: 32px; height: 32px; min-width: 32px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--navy); font-weight: 900;
+    }
+    .why-item-text h4 { color: var(--white); font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .why-item-text p { color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.6; }
+
+    .why-right {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .feature-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .feature-box:hover { background: rgba(255,255,255,0.09); border-color: rgba(201,168,76,0.4); }
+    .feature-box .icon { font-size: 36px; margin-bottom: 12px; }
+    .feature-box h4 { color: var(--white); font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .feature-box p { color: rgba(255,255,255,0.5); font-size: 0.8rem; line-height: 1.5; }
+
+    /* ─── PROCESS ─── */
+    .process { background: var(--white); }
+    .process-header { text-align: center; margin-bottom: 64px; }
+    .process-header .divider { margin: 20px auto 0; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute; top: 36px; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--sky), var(--gold));
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 20px;
+      position: relative; z-index: 1;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      background: var(--white);
+      border: 3px solid var(--pool-blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--pool-blue);
+      margin: 0 auto 20px;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .step:hover .step-num { background: var(--pool-blue); color: var(--white); }
+    .step h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 0.86rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* ─── GALLERY ─── */
+    .gallery { background: var(--off-white); }
+    .gallery-header { text-align: center; margin-bottom: 48px; }
+    .gallery-header .divider { margin: 20px auto 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 240px 240px;
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: 8px; overflow: hidden;
+      position: relative;
+      background: var(--deep-blue);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item:last-child { grid-column: span 2; }
+
+    .gallery-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px;
+      transition: transform 0.4s;
+      background-size: cover; background-position: center;
+    }
+    .gallery-item:hover .gallery-inner { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.75) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: flex-end; padding: 20px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: var(--white); font-weight: 700; font-size: 1rem; }
+
+    .g1 { background: linear-gradient(135deg, #0d3a6e, #1a7ab8); }
+    .g2 { background: linear-gradient(135deg, #0a2a4a, #0d5a8a); }
+    .g3 { background: linear-gradient(135deg, #0a3d4a, #1a8a9a); }
+    .g4 { background: linear-gradient(135deg, #1a2a0a, #5a8a1a); }
+    .g5 { background: linear-gradient(135deg, #3a1a0a, #9a5a1a); }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: var(--white); }
+    .test-header { text-align: center; margin-bottom: 56px; }
+    .test-header .divider { margin: 20px auto 0; }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .test-card {
+      background: var(--off-white);
+      border-radius: 8px;
+      padding: 32px;
+      position: relative;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .test-card:hover { border-bottom-color: var(--gold); transform: translateY(-4px); }
+    .test-quote {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--pool-blue);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .test-text { font-size: 0.94rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+    .test-author { display: flex; align-items: center; gap: 14px; }
+    .test-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pool-blue), var(--sky));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      color: var(--white); font-weight: 700; font-size: 1rem;
+    }
+    .test-name { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+    .test-loc { font-size: 0.78rem; color: var(--text-light); }
+    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 4px; }
+
+    /* ─── CONTACT ─── */
+    .contact { background: var(--navy); }
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .contact-left .section-title { color: var(--white); }
+    .contact-left .section-sub { color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+    .contact-left .divider { }
+
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .contact-item h4 { color: rgba(255,255,255,0.5); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+    .contact-item p { color: var(--white); font-size: 0.95rem; }
+
+    .contact-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 36px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.5); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.25s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: var(--navy); }
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      border: none; border-radius: 4px;
+      padding: 14px;
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+      font-family: 'Lato', sans-serif;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .form-submit:hover { opacity: 0.96; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45); }
+
+    .form-status {
+      min-height: 18px;
+      font-size: 0.82rem;
+      margin: 4px 0 10px;
+    }
+    .form-status.success {
+      color: #22c55e;
+    }
+    .form-status.error {
+      color: #f97316;
+    }
+
+    .whatsapp-btn {
+      margin-top: 12px;
+      width: 100%;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    .whatsapp-btn span {
+      font-size: 1.1rem;
+    }
+    .whatsapp-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060d18;
+      padding: 48px 5% 28px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 40px;
+    }
+    .footer-brand .nav-logo-text { font-size: 1.1rem; margin-bottom: 14px; display: block; }
+    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+
+    .footer-col h4 {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: rgba(255,255,255,0.45); font-size: 0.88rem; text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .why-inner,
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .hero-glow { display: none; }
+      .hero-stats { position: static; flex-wrap: wrap; gap: 28px; padding-top: 40px; }
+      .steps::before { display: none; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child,
+      .gallery-item:last-child { grid-column: span 1; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      .hero {
+        padding: 90px 5% 48px;
+        text-align: left;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.15;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-stats {
+        gap: 20px;
+      }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .service-icon-wrap img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">🏊</div>
+    <div class="nav-logo-text">
+      Gudavalli Pools
+      <span>Construction & Services</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Trusted Pool Experts in Andhra Pradesh</div>
+    <h1>Building Beautiful <span>Pools That Last</span> a Lifetime</h1>
+    <p>From dream design to crystal-clear water — Gudavalli Pools delivers world-class pool construction, renovation, and maintenance across the region.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Get Free Quote</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">100+</div>
+      <div class="stat-label">Pools Built</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">25+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Support</div>
+    </div>
+  </div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,160 C360,220 720,80 1080,160 C1260,200 1380,180 1440,160 L1440,220 L0,220 Z" fill="#f5f7fa" opacity="0.08"/>
+      <path d="M0,180 C400,130 800,210 1200,170 C1320,155 1400,165 1440,180 L1440,220 L0,220 Z" fill="#f5f7fa" opacity="0.06"/>
+    </svg>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Our <span>Core Services</span></h2>
+    <p class="section-sub">From groundbreaking to gleaming water, we handle every stage of your pool's lifecycle with expertise and care.</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- Pool Construction -->
+    <div class="service-card">
+      <div class="service-icon-wrap">
+        <img src="images/pool4.jpeg" alt="Pool Construction">
+      </div>
+      <div class="service-body">
+        <h3>Pool Construction</h3>
+        <p>We design and build custom swimming pools tailored to your space, style, and budget. From compact lap pools to luxurious resort-style pools — we do it all.</p>
+        <a href="#contact" class="service-link">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Maintenance -->
+    <div class="service-card">
+      <div class="service-icon-wrap">
+        <img src="images/pool2.jpg" alt="Pool Cleaning">
+      </div>
+      <div class="service-body">
+        <h3>Maintenance & Cleaning</h3>
+        <p>Keep your pool sparkling year-round with our scheduled maintenance packages. We handle water chemistry, cleaning, filter servicing, and more.</p>
+        <a href="#contact" class="service-link">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Renovation -->
+    <div class="service-card">
+      <div class="service-icon-wrap">
+        <img src="images/pool7.png" alt="Pool Renovation">
+      </div>
+      <div class="service-body">
+        <h3>Pool Renovation</h3>
+        <p>Breathe new life into an aging pool. We resurface, retile, upgrade equipment, and redesign pool surrounds to make your pool look brand new.</p>
+        <a href="#contact" class="service-link">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Repairs -->
+    <div class="service-card">
+      <div class="service-icon-wrap">
+        <img src="images/p1.jpeg" alt="Pool Repair">
+      </div>
+      <div class="service-body">
+        <h3>Repairs & Servicing</h3>
+        <p>Pumps, filters, heaters, leaks — our certified technicians diagnose and fix any pool issue fast, minimizing downtime so you can get back to swimming.</p>
+        <a href="#contact" class="service-link">Learn More →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us" id="why-us">
+  <div class="why-pattern"></div>
+  <div class="why-inner">
+    <div class="why-left">
+      <div class="section-label" style="color: var(--gold-light);">Why Choose Us</div>
+      <h2 class="section-title">The Gudavalli <span style="color:var(--sky);">Difference</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">We are more than pool builders — we are craftsmen dedicated to delivering pools of lasting beauty and enduring quality.</p>
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-item-text">
+            <h4>Expert Team</h4>
+            <p>Our certified engineers and skilled tradespeople bring decades of combined pool construction experience.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-item-text">
+            <h4>Quality Materials</h4>
+            <p>We use only premium-grade materials — guaranteed to withstand the test of time and climate.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-item-text">
+            <h4>On-Time Delivery</h4>
+            <p>We respect your schedule and commit to completing every project on time and within budget.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-item-text">
+            <h4>After-Sales Support</h4>
+            <p>Our relationship doesn't end at handover — we provide ongoing support, maintenance, and warranty service.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="why-right">
+      <div class="feature-box">
+        <div class="icon">🏆</div>
+        <h4>Award Winning</h4>
+        <p>Recognized for excellence in pool design and construction.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">🛡️</div>
+        <h4>Fully Licensed</h4>
+        <p>All work complies with local regulations and safety standards.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">💧</div>
+        <h4>Water Experts</h4>
+        <p>Advanced water treatment technology for clean, safe swimming.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">📐</div>
+        <h4>Custom Design</h4>
+        <p>Every pool is unique — designed around you and your space.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Our Simple <span>4-Step Process</span></h2>
+    <p class="section-sub" style="margin: 0 auto;">From your first call to your first swim — here's how we make it happen smoothly.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Free Consultation</h3>
+      <p>We meet with you to understand your vision, space, budget, and requirements — completely free of charge.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Design & Quote</h3>
+      <p>Our designers prepare a custom 3D design and detailed quote for your approval before any work begins.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Construction</h3>
+      <p>Our expert team gets to work, keeping you updated at every stage with zero surprises along the way.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Handover & Support</h3>
+      <p>We hand over your sparkling new pool and brief you on maintenance, backed by our warranty program.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Pool <span>Gallery</span></h2>
+    <p class="section-sub" style="margin: 0 auto;">A glimpse of pools we've designed, built and transformed for our happy clients.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="gallery-grid">
+
+  <div class="gallery-item g1">
+    <img src="images/g1.png" alt="Resort Pool Vijayawada">
+    <div class="gallery-overlay">
+      <span>Resort Pool – Vijayawada</span>
+    </div>
+  </div>
+
+  <div class="gallery-item g2">
+    <img src="images/g5.png" >
+    <div class="gallery-overlay">
+      
+    </div>
+  </div>
+
+  <div class="gallery-item g3">
+    <img src="images/g2.png">
+    <div class="gallery-overlay">
+    
+    </div>
+  </div>
+
+  <div class="gallery-item g4">
+    <img src="images/g3.png" alt="Pool Cleaning">
+    <div class="gallery-overlay">
+      <span>Pool Cleaning Service</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-header">
+    <div class="section-label">Client Reviews</div>
+    <h2 class="section-title">What Our <span>Clients Say</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="test-text">Gudavalli Pools built our dream backyard pool in just 6 weeks. The quality of the tiles, the finishing — everything was flawless. Highly recommend!</p>
+      <div class="test-author">
+        <div class="test-avatar">RK</div>
+        <div>
+          <div class="test-name">Ravi Kumar</div>
+          <div class="test-loc">Vijayawada, AP</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="test-text">Excellent service from start to finish. Their maintenance team is prompt, professional, and always keeps our hotel pool in pristine condition.</p>
+      <div class="test-author">
+        <div class="test-avatar">SP</div>
+        <div>
+          <div class="test-name">Suresh Prasad</div>
+          <div class="test-loc">Guntur, AP</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="test-text">They renovated our 10-year-old pool and it looks brand new. Great communication, transparent pricing, and outstanding workmanship. Will use again.</p>
+      <div class="test-author">
+        <div class="test-avatar">LN</div>
+        <div>
+          <div class="test-name">Lakshmi Narayana</div>
+          <div class="test-loc">Visakhapatnam, AP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label" style="color:var(--gold-light)">Get In Touch</div>
+      <h2 class="section-title">Start Your Pool <span style="color:var(--sky)">Project Today</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Ready to build your perfect pool? Contact us for a free site visit and consultation. No obligation — just expert advice.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+919866157559" style="color:inherit; text-decoration:none;">+91 9866157559</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/919121325567?text=Hi%20Gudavalli%20Pools%2C%20I%20would%20like%20to%20get%20a%20pool%20quote." style="color:inherit; text-decoration:none;" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>bluewavepools@gmail.comg</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>
+6-111, Kattukapeta,<br>
+Kolanukonda, Tadepalli,<br>
+Guntur District - 522502,<br>
+Andhra Pradesh, India
+</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Mon – Sat: 9:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" id="quote-form">
+      <h3 style="font-family:'Playfair Display',serif; color:var(--white); font-size:1.4rem; margin-bottom:24px;">Request a Free Quote</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input id="quote-name" type="text" placeholder="e.g. Ravi Kumar" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input id="quote-phone" type="tel" placeholder="+91 XXXXX XXXXX" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input id="quote-email" type="email" placeholder="you@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Service Required</label>
+        <select id="quote-service" required>
+          <option value="">Select a service…</option>
+          <option>Pool Construction</option>
+          <option>Pool Maintenance & Cleaning</option>
+          <option>Pool Renovation</option>
+          <option>Repair & Servicing</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="quote-message" placeholder="Tell us about your project, location, and any specific requirements…" required></textarea>
+      </div>
+      <p class="form-status" id="form-status"></p>
+      <button type="submit" class="form-submit">Send My Request ➜</button>
+      <a class="whatsapp-btn" href="https://wa.me/919121325567?text=Hi%20Gudavalli%20Pools%2C%20I%20would%20like%20to%20get%20a%20pool%20quote." target="_blank" rel="noopener">
+        <span>💬</span> Chat on WhatsApp
+      </a>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-logo-text" style="color:var(--white); font-family:'Playfair Display',serif;">Gudavalli Pools</span>
+      <p>Building beautiful, long-lasting swimming pools across Andhra Pradesh with craftsmanship, quality, and care.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Pool Construction</a></li>
+        <li><a href="#">Maintenance & Cleaning</a></li>
+        <li><a href="#">Pool Renovation</a></li>
+        <li><a href="#">Repairs & Servicing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Projects</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">+91 9866157559</a></li>
+        <li><a href="#">bluewavepools@gmail.com</a></li>
+        <li><a href="#">6-111, Kattukapeta
+Kolanukonda, Tadepalli
+Guntur District – 522502
+Andhra Pradesh, India</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gudavalli Pools Construction & Services. All rights reserved.</p>
+    <p style="color:rgba(255,255,255,0.2)">Built with ❤️ for quality pools</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const form = document.getElementById('quote-form');
+    const statusEl = document.getElementById('form-status');
+    if (!form || !statusEl) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('quote-name').value.trim();
+      const phone = document.getElementById('quote-phone').value.trim();
+      const email = document.getElementById('quote-email').value.trim();
+      const service = document.getElementById('quote-service').value.trim();
+      const message = document.getElementById('quote-message').value.trim();
+
+      if (!name || !phone || !email || !service || !message) {
+        statusEl.textContent = 'Please fill in all fields before sending.';
+        statusEl.className = 'form-status error';
+        return;
+      }
+
+      const subject = encodeURIComponent('New Pool Quote Enquiry – Gudavalli Pools');
+      const bodyLines = [
+        'New enquiry details:',
+        '',
+        'Name: ' + name,
+        'Phone: ' + phone,
+        'Email: ' + email,
+        'Service: ' + service,
+        '',
+        'Message:',
+        message
+      ];
+      const body = encodeURIComponent(bodyLines.join('\n'));
+
+      // Open default mail app with pre-filled email
+      window.location.href = 'mailto:bluewavepools@gmail.com?subject=' + subject + '&body=' + body;
+
+      statusEl.textContent = 'We opened your email app with all details filled. Please press Send there to complete your request.';
+      statusEl.className = 'form-status success';
+      form.reset();
+    });
+  })();
+</script>
+
+</body>
+</html>
